@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <button mat-button [matMenuTriggerFor]="menu">Roles</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Edit Role</button>
+    <button mat-menu-item>Search Roles</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="menu">Users</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Edit User</button>
+    <button mat-menu-item>Search Users</button>
+  </mat-menu>
+</mat-toolbar>

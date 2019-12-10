@@ -1,0 +1,50 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="saveUser()" #userForm="ngForm">
+      <div class=form-group>
+        <label for="username">Username</label>
+        <input type="text" [(ngModel)]="user.username"
+          class="form-control" id="username" name="username" placeholder="Enter username"
+          required #username="ngModel">
+          <small [hidden]="!username.pristine" class="alert alert-danger">Username is required</small>
+      </div>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" [(ngModel)]="user.firstName"
+          class="form-control" id="firstName" name="firstName" placeholder="Enter first name"
+          required #firstName="ngModel">
+        <small [hidden]="!firstName.pristine" class="alert alert-danger">First name is required</small>
+      </div>
+      <div class="form-group">
+        <label for="surname">Surname</label>
+        <input type="text" [(ngModel)]="user.surname"
+          class="form-control" id="surname" name="surname" placeholder="Enter surname"
+          required #surname="ngModel">
+        <small [hidden]="!surname.pristine" class="alert alert-danger">Surname is required</small>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" [(ngModel)]="user.email"
+          class="form-control" id="email" name="email" placeholder="Enter email"
+          required #email="ngModel">
+        <small [hidden]="!email.pristine" class="alert alert-danger">Email is required and format should be <i>john@doe.com</i>.</small>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" [(ngModel)]="user.password"
+          class="form-control" id="password" name="password" placeholder="Enter password"
+          required validateEqual="confirmPassword" #password="ngModel">
+        <small [hidden]="!password.pristine" class="alert alert-danger">Password is required</small>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" [(ngModel)]="user.confirmPassword"
+          class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm password"
+          required #confirmPassword="ngModel">
+        <small [hidden]="!confirmPassword.pristine" class="alert alert-danger">Confirmation Password is required</small>
+      </div>
+      <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-info">Register</button>
+      <button type="button" (click)="newUser()" class="btn btn-info">New</button>
+    </form>
+  </div>
+</div>

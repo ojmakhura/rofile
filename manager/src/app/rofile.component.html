@@ -1,0 +1,31 @@
+<app-rofile-layout  class="col-md-12">
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+      <!--this is a place for us to add side-nav code-->
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!--in here all the content must reside. We will add a navigation header as well-->
+      <!--app-rofile-header></app-rofile-header-->
+      <div class="card bg-dark my-5">
+          <div class="card-body">
+              <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
+              <ul class="text-center list-inline py-3">
+                  <button mat-button [matMenuTriggerFor]="roleMenu">Roles</button>
+                  <mat-menu #roleMenu="matMenu">
+                    <button mat-menu-item routerLink="/addrole">Edit Role</button>
+                    <button mat-menu-item routerLink="/roles" >Search Roles</button>
+                  </mat-menu>
+                  <button mat-button [matMenuTriggerFor]="userMenu">Users</button>
+                  <mat-menu #userMenu="matMenu">
+                    <button mat-menu-item routerLink="/adduser">Edit User</button>
+                    <button mat-menu-item routerLink="/users" >Search Users</button>
+                  </mat-menu>
+              </ul>
+          </div>
+        </div>
+      <main class="col-md-12">
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</app-rofile-layout>
